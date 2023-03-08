@@ -14,8 +14,15 @@ const withdraw = e => {
     e.preventDefault();
     const previusTotal = getTextField('withdraw-amount');
     const inputValue = getInputMoney('withdraw-input');
+    const mainTotal = getTextField('Total');
+    if(mainTotal < inputValue){
+        document.getElementById('audio').play();
+        alert('bap er kas theke taka nea asho');
+        document.getElementById('audio').pause();
+        return
+    }
     const withdrawtTotal = previusTotal + inputValue;
-    const total = previusTotal - inputValue;
+    const total = mainTotal - inputValue;
      setText("withdraw-amount" , withdrawtTotal);
      setText("Total" , total);
 }
