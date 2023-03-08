@@ -6,50 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAKA BANK</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" /><link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <h1 class="text-center mt-6 text-5xl text-red-400"> FAKA BANK <span class="font-bold text-orange-600">money</span></h1>
-    </header>
-    <main>
-        <section class="mt-12">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 w-7/12 h-32 mx-auto text-white  ">
-                <div class="bg-orange-400 p-6 rounded-xl">
-                    <h1 class="font-semibold text-5xl pl-6">Deposit</h1>
-                    <h2 class="text-4xl pl-6">$<span id="deposit">00</span></h2>
+    <h1 class="text-3xl text-center font-bold mt-5">Baap ka faka Bank</h1>
+    <!-- bank container  -->
+    <main class="max-w-[1200px] mx-auto text-white mt-10" >
+        <section class="grid md:grid-cols-3 gap-5 mx-2">
+            <!-- cards -->
+            <article class="bg-sky-500 p-5 rounded-xl">
+                <h2 class="text-xl">deposit</h2>
+                <p>$<span id="deposit-amount">00</span></p>
+            </article>
+            <article class="bg-indigo-700 p-5 rounded-xl">
+                <h2 class="text-xl">withdraw</h2>
+                <p>$<span id="withdraw-amount">00</span></p>
+            </article>
+            <article class="bg-lime-600 p-5 rounded-xl">
+                <h2 class="text-xl">Total</h2>
+                <p>$<span id="Total">00</span></p>
+            </article>
+        </section>
+        
+        <!-- deposit and withdraw  -->
+        <section class="md:w-1/2 mx-2 md:mx-auto mt-10 bg-slate-900 rounded-lg text-white">
+            <div class="mb-4 border-b border-gray-200 dark:border-gray-700 text-black">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="deposit-tab" data-tabs-target="#deposit" type="button" role="tab" aria-controls="deposit" aria-selected="false">deposit</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="withdraw-tab" data-tabs-target="#withdraw" type="button" role="tab" aria-controls="withdraw" aria-selected="false">withdraw</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="myTabContent">
+                <div class="hidden p-4 rounded-lg" id="deposit" role="tabpanel" aria-labelledby="deposit-tab">
+                    <div>
+                        <form id="deposit-form" class="flex flex-col p-5 rounded-xl gap-5 ">
+                            <h2 class="text-xl font-bold">deposit Monkey</h2>
+                            <input type="text" id="deposit-input" class="p-2 text-black border-0 outline-none" autocomplete="off" placeholder="deposit Monkey">
+                            <button class="bg-sky-700 p-2">deposit</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="bg-sky-300 p-6 rounded-xl">
-                    <h1 class="font-semibold text-5xl pl-6">Withdraw</h1>
-                    <h2  class="text-4xl pl-6">$<span id="withdraw">00</span></h2>
-                </div>
-                <div class="bg-amber-500 p-6 rounded-xl">
-                    <h1 class="font-semibold text-5xl pl-6">Balance</h1>
-                    <h2 class="text-4xl pl-6">$<span id="Balance">1235</span></h2>
+                <div class="hidden p-4 rounded-lg " id="withdraw" role="tabpanel" aria-labelledby="withdraw-tab">
+                    <div>
+                        <form id="withdraw-form" class="flex flex-col p-5 rounded-xl gap-5">
+                            <h2 class="text-xl font-bold">withdraw Monkey</h2>
+                            <input type="text" id="withdraw-input" class="p-2 text-black border-0 outline-none" autocomplete="off" placeholder="withdraw Monkey">
+                            <button id="" class="bg-sky-700 p-2">withdraw</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="mt-12 sm:my-5">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-7/12  mx-auto text-white">
-                <div class="bg-orange-600 rounded-xl mt-12 p-8 h-64">
-                    <h1 class="font-semibold text-5xl ">Please Deposit</h1>
-                    <input id="input-deposit" class="w-72 h-8 rounded-md mt-6 mx-14 text-black" type="text" placeholder=" $ Amount You want to Deposit">
-                    <br>
-                    <button id="deposit-button" class="mt-4 mx-14 bg-orange-400 w-32 h-8 hover:bg-red-300 rounded-md ">Deposit</button>
-                </div>
-                <div class="bg-red-400 rounded-xl mt-12 p-8 h-64">
-                    <h1 class="font-semibold text-5xl ">Please Withdraw</h1>
-                    <input id="input-withdraw" class="w-72 h-8 rounded-md mt-6 mx-14 text-black" type="text" placeholder=" $ Amount You want to Withdraw">
-                    <br>
-                    <button id="withdraw-button" class="mt-4 mx-14 bg-orange-400 w-32 h-8 hover:bg-amber-500 rounded-md ">Withdraw</button>
-                    <audio id="myAudio">
-                        <source src="audio/mixkit-classic-alarm-995.wav" type="audio/wav">
-                        
-                      </audio>
-                      
-                </div>
-            </div>
-        </section>
+        
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </main>
-    <script src="js/deposit.js"></script>
+    <script type="module" src="bank.js"></script>
+    
 </body>
 </html>
