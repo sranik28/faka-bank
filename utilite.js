@@ -1,6 +1,6 @@
 export const getInputMoney = (id) =>{
  const input = document.getElementById(id);
-if(input.value === ''){
+if(input.value === ' '){
     document.getElementById('audio').play();
     alert("can not be blanck");
     document.getElementById('audio').pause()
@@ -20,13 +20,13 @@ else{
     input.value = '';
     return parseFloat(inputStringValue);
 }
-input.value = '';
+{input.value = '';}
 }
 
 export const getTextField = (id) => {
-    const text = document.getElementById(id),
-    textString = text.innerText;
-    return parseFloat(textString);
+    const text = document.getElementById("id"),
+    textString = text.innerHTML;
+    return parseInt(textString);
 }
 
 export const setText = (id , value) =>{
